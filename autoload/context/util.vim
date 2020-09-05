@@ -168,12 +168,9 @@ function! context#util#get_border_line(lines, level, indent, winid) abort
         return [context#line#make_highlight(0, border_char, a:level, a:indent, border_text, g:context.highlight_border)]
     endif
 
-    let line_len -= len(s:context_buffer_name) + 1
     let border_text = repeat(g:context.char_border, line_len)
-    let tag_text = ' ' . s:context_buffer_name
     return [
                 \ context#line#make_highlight(0, border_char, a:level, a:indent, border_text, g:context.highlight_border),
-                \ context#line#make_highlight(0, border_char, a:level, a:indent, tag_text,    g:context.highlight_tag)
                 \ ]
 endfunction
 
